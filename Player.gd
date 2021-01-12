@@ -9,6 +9,7 @@ const JUMP_HEIGHT = -550
 var motion = Vector2()
 
 func _physics_process(delta):
+	# TODO: Limit falling speed
 	motion.y += GRAVITY
 	var friction = false
 	
