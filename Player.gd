@@ -10,6 +10,7 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	# TODO: Limit falling speed
+	# TODO: Back to menu when pressing Escape
 	motion.y += GRAVITY
 	var friction = false
 	
