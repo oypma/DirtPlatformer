@@ -40,19 +40,6 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 	motion = move_and_slide(motion, UP)
-	
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://StartMenu.tscn")
 	pass
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
