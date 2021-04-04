@@ -1,18 +1,30 @@
 extends KinematicBody2D
 
+func _ready():
+	print("Hello Godot!")
+	position = PlayerVariables.position
+	
 const UP = Vector2(0, -1)
 const GRAVITY = 20
 const ACCELERATION = 50
 const MAX_SPEED = 200
 const JUMP_HEIGHT = -550
+const MAX_FALLING_SPEED = 999
 
 var motion = Vector2()
 
 func _physics_process(delta):
-	# TODO: Limit falling speed
-	# TODO: Back to menu when pressing Escape
 	motion.y += GRAVITY
+	if motion.y > MAX_FALLING_SPEED:
+		motion.y -= 40
+	if Input.is_action_pressed("ui_home"):
+		get_tree().reload_current_scene()
 	var friction = false
+	
+	if Input.is_action_just_pressed("save"):
+		save()
+	if Input.is_action_just_pressed("StartMenu"):
+		get_tree().change_scene("StartMenu.tscn")
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
@@ -26,7 +38,7 @@ func _physics_process(delta):
 		$Sprite.play("Idle")
 		friction = true
 		
-		
+#TODO Save Game Ctrl + S = Save
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
@@ -40,6 +52,13 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 	motion = move_and_slide(motion, UP)
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().change_scene("res://StartMenu.tscn")
+	print(position.x)
+	print(position.y)
 	pass
+	
+func save():
+	var savegame = SaveGame.new()
+	savegame.position = position
+	savegame.scene = get_tree().current_scene.filename
+	ResourceSaver.save("res://save.tres", savegame)
+	print("Banankage")

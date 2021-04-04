@@ -19,9 +19,12 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 273.0
-margin_top = 149.0
+margin_top = 137.0
 margin_right = 366.0
-margin_bottom = 211.0
+margin_bottom = 223.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 93.0
@@ -32,12 +35,22 @@ text = "Jumping Game"
 margin_top = 18.0
 margin_right = 93.0
 margin_bottom = 38.0
-text = "Start Game"
+text = "New Game"
 
-[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="loadgame" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 42.0
 margin_right = 93.0
 margin_bottom = 62.0
+text = "Load Game"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 93.0
+margin_bottom = 86.0
 text = "Quit Game"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/loadgame" to="." method="_on_loadgame_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
