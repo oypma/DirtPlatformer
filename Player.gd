@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-func _ready():
-	print("Hello Godot!")
-	position = PlayerVariables.position
-	
 const UP = Vector2(0, -1)
 const GRAVITY = 20
 const ACCELERATION = 50
@@ -52,13 +48,9 @@ func _physics_process(delta):
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.05)
 	motion = move_and_slide(motion, UP)
-	print(position.x)
-	print(position.y)
 	pass
 	
 func save():
 	var savegame = SaveGame.new()
-	savegame.position = position
 	savegame.scene = get_tree().current_scene.filename
-	ResourceSaver.save("res://save.tres", savegame)
-	print("Banankage")
+	ResourceSaver.save("save.tres", savegame)

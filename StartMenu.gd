@@ -9,6 +9,8 @@ func _on_QuitGameButton_pressed():
 
 
 func _on_loadgame_pressed():
-	var savegame = load("res://save.tres")
-	var res = get_tree().change_scene(savegame.scene)
-	PlayerVariables.position = savegame.position
+	var savegame = load("save.tres")
+	if savegame.scene != null:
+		var res = get_tree().change_scene(savegame.scene)
+		#var startPosition = PlayerVariables.position
+		#PlayerVariables.position = startPosition
