@@ -19,6 +19,7 @@ tile_data = PoolIntArray( -524308, 0, 6, -524307, 0, 196609, -524306, 0, 196609,
 
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 position = Vector2( -32, 2912 )
+next_world = "res://world7.tscn"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 2336.0

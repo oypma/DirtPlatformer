@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "SaveGame",
 "language": "GDScript",
 "path": "res://SaveGame.gd"
+}, {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
-"SaveGame": ""
+"SaveGame": "",
+"VirtualJoystick": ""
 }
 
 [application]
@@ -94,6 +100,10 @@ StartMenu={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777220,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

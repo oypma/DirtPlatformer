@@ -9,7 +9,9 @@ const MAX_FALLING_SPEED = 999
 
 var motion = Vector2()
 
+
 func _physics_process(delta):
+	print($CanvasLayer/Virtualjoystick.get_output())
 	motion.y += GRAVITY
 	if motion.y > MAX_FALLING_SPEED:
 		motion.y -= 40
@@ -34,7 +36,6 @@ func _physics_process(delta):
 		$Sprite.play("Idle")
 		friction = true
 		
-#TODO Save Game Ctrl + S = Save
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
